@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
 
 / {
     keymap {
@@ -20,10 +21,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&none  &kp Q             &kp W        &kp E           &kp R           &kp T        &kp Y      &kp U            &kp I            &kp O        &kp P                  &none
-&none  &lt 1 A           &mt LCTRL S  &mt LEFT_ALT D  &mt LEFT_GUI F  &kp G        &kp H      &mt RIGHT_GUI J  &mt RIGHT_ALT K  &mt RCTRL L  &lt 2 SEMICOLON        &none
-&none  &mt LEFT_SHIFT Z  &kp X        &kp C           &kp V           &kp B        &kp N      &kp M            &kp COMMA        &kp DOT      &mt RIGHT_SHIFT SLASH  &none
-                                      &sl 3           &kp DELETE      &kp SPACE    &kp SPACE  &kp BACKSPACE    &lt 1 RETURN
+&none  &kp Q             &kp W        &kp E           &kp R           &kp T         &kp Y          &kp U            &kp I            &kp O        &kp P                  &none
+&none  &lt 1 A           &mt LCTRL S  &mt LEFT_ALT D  &mt LEFT_GUI F  &kp G         &kp H          &mt RIGHT_GUI J  &mt RIGHT_ALT K  &mt RCTRL L  &lt 2 SEMICOLON        &none
+&none  &mt LEFT_SHIFT Z  &kp X        &kp C           &kp V           &kp B         &kp N          &kp M            &kp COMMA        &kp DOT      &mt RIGHT_SHIFT SLASH  &none
+                                      &sl 3           &kp SPACE       &kp DELETE    &kp BACKSPACE  &kp SPACE        &lt 1 RETURN
             >;
         };
 
@@ -59,10 +60,10 @@
 
         layer_3 {
             bindings = <
-&trans  &trans      &trans        &trans        &trans        &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans      &trans        &trans        &trans        &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                                  &trans        &trans        &trans    &trans  &trans  &trans
+&trans  &trans      &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &out OUT_TOG    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans      &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans  &trans
+                                  &trans        &trans        &trans          &trans  &trans  &trans
             >;
         };
     };
