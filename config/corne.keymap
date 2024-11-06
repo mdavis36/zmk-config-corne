@@ -21,10 +21,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&none  &kp Q             &kp W        &kp E           &kp R             &kp T                     &kp Y      &kp U            &kp I                &kp O             &kp P                  &none
-&none  &lt 1 A           &kp S        &kp D           &mt LEFT_GUI F    &kp G                     &kp H      &mt RIGHT_GUI J  &kp K                &kp L             &lt 2 SEMICOLON        &none
-&none  &mt LEFT_SHIFT Z  &mt LCTRL X  &mt LEFT_ALT C  &kp V             &kp B                     &kp N      &kp M            &mt RIGHT_ALT COMMA  &mt RCTRL PERIOD  &mt RIGHT_SHIFT SLASH  &none
-                                      &sl 3           &mt LSHFT DELETE  &mt LEFT_COMMAND SPACE    &kp SPACE  &kp BACKSPACE    &lt 1 RETURN
+&none  &kp Q             &kp W        &kp E           &kp R                   &kp T                    &kp Y          &kp U            &kp I                &kp O             &kp P                  &none
+&none  &lt 1 A           &kp S        &kp D           &mt LEFT_GUI F          &kp G                    &kp H          &mt RIGHT_GUI J  &kp K                &kp L             &lt 2 SEMICOLON        &none
+&none  &mt LEFT_SHIFT Z  &mt LCTRL X  &mt LEFT_ALT C  &kp V                   &kp B                    &kp N          &kp M            &mt RIGHT_ALT COMMA  &mt RCTRL PERIOD  &mt RIGHT_SHIFT SLASH  &none
+                                      &sl 3           &mt LEFT_COMMAND SPACE  &mt LEFT_SHIFT DELETE    &kp BACKSPACE  &kp SPACE        &lt 1 RETURN
             >;
         };
 
