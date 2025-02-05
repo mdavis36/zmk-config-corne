@@ -55,10 +55,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&none  &kp TAB    &kp F7  &kp F8  &kp F9  &kp F10     &none           &kp PAGE_UP     &kp C_VOLUME_UP    &none            &none  &none
-&none  &kp ESC    &kp F4  &kp F5  &kp F6  &kp F11     &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW       &kp RIGHT_ARROW  &none  &none
-&none  &kp GRAVE  &kp F1  &kp F2  &kp F3  &kp F12     &none           &kp PAGE_DOWN   &kp C_VOLUME_DOWN  &none            &none  &none
-                          &to 0   &none   &kp HOME    &kp BACKSPACE   &none           &to 0
+&none  &kp TAB          &kp F7  &kp F8  &kp F9  &kp F10     &none           &kp PAGE_UP     &kp C_VOLUME_UP    &none            &none  &none
+&none  &kp ESC          &kp F4  &kp F5  &kp F6  &kp F11     &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW       &kp RIGHT_ARROW  &none  &none
+&none  &mt GLOBE GRAVE  &kp F1  &kp F2  &kp F3  &kp F12     &none           &kp PAGE_DOWN   &kp C_VOLUME_DOWN  &none            &none  &none
+                                &to 0   &none   &kp HOME    &kp END         &none           &to 0
             >;
         };
 
