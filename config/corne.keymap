@@ -18,7 +18,7 @@
         Shift_MT: Shift_MT {
             compatible = "zmk,behavior-hold-tap";
             label = "SHIFT_MT";
-            bindings = <&mt>, <&kp>;
+            bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
