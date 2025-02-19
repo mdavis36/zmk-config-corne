@@ -14,6 +14,17 @@
 &mt { flavor = "tap-preferred"; };
 
 / {
+    behaviors {
+        Shift_MT: Shift_MT {
+            compatible = "zmk,behavior-hold-tap";
+            label = "SHIFT_MT";
+            bindings = <&mt>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -25,10 +36,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&none  &kp Q             &kp W        &kp E           &kp R                   &kp T                    &kp Y          &kp U            &kp I                &kp O             &kp P                  &none
-&none  &lt 1 A           &kp S        &kp D           &mt LEFT_GUI F          &kp G                    &kp H          &mt RIGHT_GUI J  &kp K                &kp L             &lt 2 SEMICOLON        &none
-&none  &mt LEFT_SHIFT Z  &mt LCTRL X  &mt LEFT_ALT C  &kp V                   &kp B                    &kp N          &kp M            &mt RIGHT_ALT COMMA  &mt RCTRL PERIOD  &mt RIGHT_SHIFT SLASH  &none
-                                      &sl 3           &mt LEFT_COMMAND SPACE  &mt LEFT_SHIFT DELETE    &kp BACKSPACE  &kp SPACE        &lt 1 RETURN
+&none  &kp Q                   &kp W        &kp E           &kp R                   &kp T                          &kp Y          &kp U            &kp I                &kp O             &kp P                        &none
+&none  &lt 1 A                 &kp S        &kp D           &mt LEFT_GUI F          &kp G                          &kp H          &mt RIGHT_GUI J  &kp K                &kp L             &lt 2 SEMICOLON              &none
+&none  &Shift_MT LEFT_SHIFT Z  &mt LCTRL X  &mt LEFT_ALT C  &kp V                   &kp B                          &kp N          &kp M            &mt RIGHT_ALT COMMA  &mt RCTRL PERIOD  &Shift_MT RIGHT_SHIFT SLASH  &none
+                                            &sl 3           &mt LEFT_COMMAND SPACE  &Shift_MT LEFT_SHIFT DELETE    &kp BACKSPACE  &kp SPACE        &lt 1 RETURN
             >;
         };
 
@@ -40,9 +51,9 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&none  &kp EXCLAMATION  &kp AT_SIGN  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE            &kp HASH       &kp N7        &kp N8        &kp N9        &kp MINUS                  &none
-&none  &none            &kp DOLLAR   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp GRAVE           &kp PERIOD     &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp EQUAL                  &trans
-&none  &kp PERCENT      &kp CARET    &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp SINGLE_QUOTE    &kp NUMBER_0   &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &mt RIGHT_SHIFT BACKSLASH  &trans
+&none  &kp EXCLAMATION  &kp AT_SIGN  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE            &kp HASH       &kp N7        &kp N8        &kp N9        &kp MINUS                        &none
+&none  &none            &kp DOLLAR   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp GRAVE           &kp PERIOD     &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp EQUAL                        &trans
+&none  &kp PERCENT      &kp CARET    &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp SINGLE_QUOTE    &kp NUMBER_0   &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &Shift_MT RIGHT_SHIFT BACKSLASH  &trans
                                      &to 0                 &trans                 &kp DELETE          &kp BACKSPACE  &trans        &to 0
             >;
         };
