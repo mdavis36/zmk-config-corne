@@ -75,10 +75,10 @@
 
         layer_3 {
             bindings = <
-&trans  &trans      &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &out OUT_TOG    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans      &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans  &trans
-                                  &trans        &trans        &trans          &trans  &trans  &trans
+&trans  &trans          &trans        &trans        &trans        &out OUT_TOG    &trans  &out OUT_USB  &trans  &trans  &trans  &trans
+&trans  &bt BT_CLR_ALL  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none           &trans  &trans        &trans  &trans  &trans  &trans
+&trans  &trans          &trans        &trans        &trans        &out OUT_BLE    &trans  &trans        &trans  &trans  &trans  &trans
+                                      &trans        &trans        &trans          &trans  &trans        &trans
             >;
         };
     };
