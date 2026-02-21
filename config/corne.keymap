@@ -9,6 +9,7 @@
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/pointing.h>
 
 &lt { flavor = "hold-preferred"; };
 
@@ -23,6 +24,25 @@
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
+        };
+
+        lt_ent_l2: lt_ent_l2 {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LT_ENT_L2";
+            bindings = <&none>, <&none>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+        };
+
+        td_multi: td_multi {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_MULTI";
+            #binding-cells = <0>;
+            bindings = <&lt 2 RET>, <&sl 4>;
+
+            tapping-term-ms = <250>;
         };
     };
 
@@ -40,7 +60,7 @@
 &none  &kp Q                   &kp W               &kp E           &kp R                                   &kp T                          &kp Y          &kp U            &kp I            &kp O                &kp P                        &none
 &none  &lt 1 A                 &mt LEFT_CONTROL S  &mt LEFT_ALT D  &mt LEFT_GUI F                          &kp G                          &kp H          &mt RIGHT_GUI J  &mt RIGHT_ALT K  &mt RIGHT_CONTROL L  &lt 2 SEMICOLON              &none
 &none  &Shift_MT LEFT_SHIFT Z  &kp X               &kp C           &kp V                                   &kp B                          &kp N          &kp M            &kp COMMA        &kp PERIOD           &Shift_MT RIGHT_SHIFT SLASH  &none
-                                                   &sl 3           &mt LS(LA(LC(LG(LEFT_COMMAND)))) SPACE  &Shift_MT LEFT_SHIFT DELETE    &kp BACKSPACE  &kp SPACE        &lt 1 RETURN
+                                                   &sl 3           &mt LS(LA(LC(LG(LEFT_COMMAND)))) SPACE  &Shift_MT LEFT_SHIFT DELETE    &kp BACKSPACE  &kp SPACE        &td_multi
             >;
         };
 
@@ -80,6 +100,15 @@
 &trans  &bt BT_CLR_ALL     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none           &trans  &trans        &trans  &trans  &trans             &trans
 &trans  &trans             &trans        &trans        &trans        &out OUT_BLE    &trans  &trans        &trans  &trans  &trans             &trans
                                          &trans        &trans        &trans          &trans  &trans        &trans
+            >;
+        };
+
+        layer_4 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans          &mmv MOVE_UP    &trans           &to 0   &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans     &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans          &trans          &trans           &trans  &trans
+                        &trans  &trans  &trans    &mkp LCLK  &mkp MCLK       &mkp RCLK
             >;
         };
     };
