@@ -61,3 +61,15 @@ Key conventions in this keymap:
   `&to` = switch layer
 - `&none` = no action, `&trans` = transparent (falls through to lower layer)
 - Key codes are from ZMK includes (e.g., `LEFT_GUI`, `NUMBER_4`, `C_VOLUME_UP`)
+
+## Downloading Firmware
+
+Run `bash scripts/download-firmware.sh` to download the latest firmware build
+from GitHub Actions. The script:
+
+- Finds the latest CI run for the current branch
+- Waits if the run is still in progress
+- Downloads artifacts into `firmware/firmware-<SHA>/`
+- Skips re-download if already present
+
+The `firmware/` directory is gitignored.
