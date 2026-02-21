@@ -40,7 +40,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_MULTI";
             #binding-cells = <0>;
-            bindings = <&lt 2 RET>, <&sl 4>;
+            bindings = <&lt 2 RET>, <&to 4>;
 
             tapping-term-ms = <250>;
         };
