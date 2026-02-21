@@ -51,17 +51,20 @@ fi
 
 info "Looking for the latest workflow run on branch '$branch'..."
 
-run_info="$(gh run list --branch "$branch" --limit 1 --json databaseId,status,conclusion,headSha,url \
-  --jq '.[0] | [.databaseId, .status, .conclusion, .headSha, .url] | @tsv')"
+run_json="$(gh run list --branch "$branch" --limit 1 --json databaseId,status,conclusion,headSha,url --jq '.[0]')"
 
-if [[ -z "$run_info" ]]; then
+if [[ -z "$run_json" || "$run_json" == "null" ]]; then
   error "no workflow runs found for branch '$branch'."
   exit 1
 fi
 
-read -r run_id status conclusion head_sha run_url <<<"$run_info"
+run_id="$(jq -r '.databaseId' <<<"$run_json")"
+status="$(jq -r '.status' <<<"$run_json")"
+conclusion="$(jq -r '.conclusion // empty' <<<"$run_json")"
+head_sha="$(jq -r '.headSha' <<<"$run_json")"
+run_url="$(jq -r '.url' <<<"$run_json")"
 
-echo "Run #${run_id}: status=$status conclusion=$conclusion"
+echo "Run #${run_id}: status=$status conclusion=${conclusion:-(pending)}"
 echo "  SHA: $head_sha"
 echo "  URL: $run_url"
 echo
@@ -71,8 +74,9 @@ echo
 while [[ "$status" != "completed" ]]; do
   warn "run is still in progress, waiting 15s..."
   sleep 15
-  run_info="$(gh run view "$run_id" --json status,conclusion --jq '[.status, .conclusion] | @tsv')"
-  read -r status conclusion <<<"$run_info"
+  poll_json="$(gh run view "$run_id" --json status,conclusion)"
+  status="$(jq -r '.status' <<<"$poll_json")"
+  conclusion="$(jq -r '.conclusion // empty' <<<"$poll_json")"
 done
 
 # --- Check conclusion ---
